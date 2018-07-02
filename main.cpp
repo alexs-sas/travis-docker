@@ -2,6 +2,7 @@
 
 int main()
 {
-  std::cout << "It works!\n";
+  std::cout << "1.It works!\n";
+  std::cout << "2.It works!\n";
   return 0;
 }
