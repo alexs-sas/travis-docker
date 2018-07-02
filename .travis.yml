@@ -1,0 +1,10 @@
+services:
+  - docker
+
+script:
+  - export ARCH=x86-64
+  - export IMAGE_NAME=alexshcdr/tekon-debian-$ARCH
+  - mkdir -p {sources,output}
+  - yes | cp -rf * sources || echo "Done"
+  - docker run -v $(pwd)/sources:/sources:ro -v $(pwd)/output:/output:rw --rm $IMAGE_NAME /bin/bash -c 'g++ sources/main.cpp -o /output/test && /output/test'
+ 
